@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js'
 import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
-const modelStl = new URL('model.stl', import.meta.url).href
+const modelStl = new URL('./model.stl', import.meta.url).href
 
 // ig container?
 
