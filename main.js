@@ -1,11 +1,11 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
-import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js';
+import * as THREE from 'https://unpkg.com/three/build/three.module.js';
+import { OrbitControls } from 'https://unpkg.com/three/build/three.module.js/examples/jsm/controls/OrbitControls.js';
+import { STLLoader } from 'https://unpkg.com/three/build/three.module.js/examples/jsm/loaders/STLLoader.js';
+import { AsciiEffect } from 'https://unpkg.com/three/build/three.module.js/examples/jsm/effects/AsciiEffect.js';
 
 // DECLARE / CREATE VARIABLES
 
-const modelStl = new URL('./model.stl', import.meta.url).href;
+const modelStl = new URL('./model.stl', import.meta.url).href
 const container = document.getElementById('container');
 const clock = new THREE.Clock();
 let rotateModel = false;
@@ -15,7 +15,6 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0, 0, 0);
 
 // LIGHTING
-
 const pointLight1 = new THREE.PointLight(0xffffff, 1);
 pointLight1.position.set(1000, 500, 100);
 scene.add(pointLight1);
