@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noel.dog</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body id="body">
+    <div id="container"></div>
+    <div id ="nav">
+        <a href="./index.html"><div class="button">home</div></a>
+        <a href="./about.html"><div class="button">about</div></a>
+        <div onclick="alert('im workin on it bruh')" class="button" >resume</div>
+        <a href="./send.html"><div id="button-message-active">send a message</div></a>
+    </div>
+    <div id="message">
+        <div id="message-container">
+            <div class="header" id="header">sendmessage.sh</div>
+            <div class="top-fields">
+                <div id="from-container">
+                    <div id="from-text">From</div>
+                    <input type="text" id="from"></input>
+                </div>
+                <div id="subject-container">
+                    <div id="subject-text">Subject</div>
+                    <input type="text" id="subject"></input>
+                </div>
+            </div>
+            <div class="body-container">
+                <div id="body-text">Body</div>
+                <textarea id="body-text-fr" maxlength="500"></textarea>
+            </div>
+            <button id="send" onclick="alert('im workin on it bruh')">Send</button>
+        </div>
+    </div>
+    <div id="bottom">
+        <div class="bottom-text" onclick="window.open('https://twitter.com/noel56983873', '_blank')">twitter</div>
+        <div class="bottom-text" onclick="window.open('https://github.com/noelye', '_blank')">github</div>
+        <div class="bottom-text" onclick="window.open('https://discord.com/users/220620931783983104', '_blank')">discord</div>
+        <a href="mailto:1noel@pm.me"><div class="bottom-text">email</div></a>
+        <div id="dark-mode">dark mode</div>
+        <div id="dark-mode-rectangle"></div>
+    </div>
+    <script src="send.js"></script>
+</body>
+</html>
