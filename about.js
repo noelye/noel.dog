@@ -1,4 +1,4 @@
-import * as THREE from 'https://unpkg.com/three/build/three.module.js/';
+import * as THREE from './three';
 
 const container = document.getElementById('container');
 

@@ -1,7 +1,7 @@
-import * as THREE from 'https://unpkg.com/three/build/three.module.js';
-import { OrbitControls } from 'https://unpkg.com/three/build/three.module.js/examples/jsm/controls/OrbitControls.js';
-import { STLLoader } from 'https://unpkg.com/three/build/three.module.js/examples/jsm/loaders/STLLoader.js';
-import { AsciiEffect } from 'https://unpkg.com/three/build/three.module.js/examples/jsm/effects/AsciiEffect.js';
+import * as THREE from './three';
+import { OrbitControls } from './three/examples/jsm/controls/OrbitControls.js';
+import { STLLoader } from './three/examples/jsm/loaders/STLLoader.js';
+import { AsciiEffect } from './three/examples/jsm/effects/AsciiEffect.js';
 
 // DECLARE / CREATE VARIABLES
 
