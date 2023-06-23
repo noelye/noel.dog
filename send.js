@@ -12,6 +12,17 @@ const subjectInput = document.getElementById('subject')
 const fromText = document.getElementById('from-text')
 const fromInput = document.getElementById('from')
 const sendMessage = document.getElementById('send')
+const hamburger = document.getElementById("hamburger");
+const hamburgerLines = document.getElementsByClassName("lines");
+const noel = document.getElementById("noel")
+const menu = document.getElementById("menu");
+const hider = document.getElementById("hider");
+const backgroundCover = document.getElementById("background-cover")
+const homeButton = document.getElementById("home")
+const aboutButton = document.getElementById("about-mobile")
+const resumeButton = document.getElementById("resume")
+const sendMessageButton = document.getElementById("sendmessage")
+
 
 
 
@@ -42,6 +53,23 @@ function darkMode() {
     darkText.innerHTML = 'dark mode';
 
     header.style.color = 'black';
+
+    for (let i = 0; i < hamburgerLines.length; i++) {
+      hamburgerLines[i].style.backgroundColor = "black";
+    }
+    noel.style.color = "black";
+    menu.style.backgroundColor = 'white';
+    menu.style.borderTop = '1px solid #C7C7C7'
+    backgroundCover.style.backgroundColor = 'white'
+    darkText.innerHTML = "dark mode";
+    homeButton.style.color = "white";
+    homeButton.style.backgroundColor = "black";
+    aboutButton.style.color = "#6F6F6F"
+    aboutButton.style.backgroundColor = "#EAEAEA"
+    resumeButton.style.color = "#6F6F6F"
+    resumeButton.style.backgroundColor = "#EAEAEA"
+    sendMessageButton.style.color = "#0038FF"
+    sendMessageButton.style.backgroundColor = "#DDE0FF"
   } else {
     body.style.backgroundColor = '#111111'
     rectangle.style.background = 'rgba(255, 255, 255, 0.204)';
@@ -66,5 +94,40 @@ function darkMode() {
     darkText.innerHTML = 'light mode';
 
     header.style.color = 'white';
+    for (let i = 0; i < hamburgerLines.length; i++) {
+      hamburgerLines[i].style.backgroundColor = "white";
+    }
+    noel.style.color = "white"
+    menu.style.backgroundColor = 'rgb(17, 17, 17)';
+    menu.style.borderTop = '1px solid #383838'
+    backgroundCover.style.backgroundColor = 'rgb(17, 17, 17)'
+    homeButton.style.color = "black";
+    homeButton.style.backgroundColor = "white";
+    aboutButton.style.color = "#8C8C8C"
+    aboutButton.style.backgroundColor = "#202020"
+    resumeButton.style.color = "#8C8C8C"
+    resumeButton.style.backgroundColor = "#202020"
+    sendMessageButton.style.color = "#0038FF"
+    sendMessageButton.style.backgroundColor = "#16161D"
   }
 }
+
+hamburger.addEventListener("click", () => {
+  if (menu.classList.contains("active") == true) {
+      menu.classList.toggle("active")
+      backgroundCover.classList.toggle("inactive")
+      backgroundCover.classList.toggle("active")
+      menu.classList.toggle("inactive")
+      hamburger.classList.toggle("active");
+      hider.classList.toggle("active");
+      hider.classList.toggle("inactive");
+  } else {
+      menu.classList.remove("inactive");
+      menu.classList.toggle("active");
+      backgroundCover.classList.remove("inactive");
+      backgroundCover.classList.toggle("active");
+      hamburger.classList.toggle("active");
+      hider.classList.remove("inactive");
+      hider.classList.toggle("active");
+  }
+});
