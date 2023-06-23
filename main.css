@@ -27,6 +27,9 @@ body {
     overflow: hidden;
     background-color: rgb(255, 255, 255);
     text-align: center;
+    overflow-x :hidden; 
+    overflow-y :hidden; 
+
 
 }
 
@@ -141,20 +144,6 @@ a {
     transform: translateY(-2px);
 }
 
-#bottom {
-    color: black;
-    font-size: 12px;
-    font-family: 'Roboto Mono';
-    font-weight: 400;
-    display: flex;
-    position: absolute;
-    bottom: -20px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    height: 50px;
-}
 
 
 .bottom-text:hover {
@@ -568,7 +557,6 @@ transform: translateY(-1px);
 
 @media screen and (max-width: 480px) {
     #bottom {
-        padding-left: 16px;
         color: black;
         font-size: 12px;
         font-family: 'Roboto Mono';
@@ -582,7 +570,14 @@ transform: translateY(-1px);
         gap: 20px;
         height: 100px;
     }
+
+    #bottom-buttons-bro {
+        padding-left: 30px;
+        gap: 15px;
+        display: flex;
+        flex-direction: row;
     }
+}
 
 @media screen and (min-width: 480px) {
     #bottom {
@@ -596,8 +591,13 @@ transform: translateY(-1px);
         width: 100%;
         justify-content: center;
         align-items: center;
-        gap: 20px;
         height: 100px;
+    }
+
+    #bottom-buttons-bro {
+        gap: 30px;
+        display: flex;
+        flex-direction: row;
     }
 }
 
