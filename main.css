@@ -26,7 +26,10 @@ body {
     height: 100%;
     background-color: rgb(255, 255, 255);
     text-align: center;
+}
 
+#container {
+    overflow: hidden;
 }
 
 .webgl {
@@ -641,8 +644,13 @@ transform: translateY(-1px);
 }
 
 @media screen and (min-width: 480px) {
+    #message {
+        top: 20%;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
     #message-container {
-      width: 500px;
       height: 500px;
     }
 
