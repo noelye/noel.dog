@@ -112,21 +112,23 @@ function darkMode() {
   }
 }
 
-hamburger.addEventListener("click", () => {
+hamburger.addEventListener("touchstart", () => {
   if (menu.classList.contains("active") == true) {
+      hamburger.classList.toggle("active");
+      hamburger.classList.toggle("inactive");
       menu.classList.toggle("active")
       backgroundCover.classList.toggle("inactive")
       backgroundCover.classList.toggle("active")
       menu.classList.toggle("inactive")
-      hamburger.classList.toggle("active");
       hider.classList.toggle("active");
       hider.classList.toggle("inactive");
   } else {
+      hamburger.classList.remove("inactive");
+      hamburger.classList.toggle("active");
       menu.classList.remove("inactive");
       menu.classList.toggle("active");
       backgroundCover.classList.remove("inactive");
       backgroundCover.classList.toggle("active");
-      hamburger.classList.toggle("active");
       hider.classList.remove("inactive");
       hider.classList.toggle("active");
   }

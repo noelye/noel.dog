@@ -33,8 +33,8 @@ material.side = THREE.DoubleSide;
 // VIEWPORT
 
 const sizes = {
-  width: window.innerWidth - 50,
-  height: window.innerHeight - 50
+  width: window.innerWidth,
+  height: window.innerHeight
 };
 
 //VIEWPORT AND CAMERA
@@ -164,21 +164,23 @@ function darkMode() {
   }
 }
 
-hamburger.addEventListener("click", () => {
+hamburger.addEventListener("touchstart", () => {
     if (menu.classList.contains("active") == true) {
+        hamburger.classList.toggle("active");
+        hamburger.classList.toggle("inactive");
         menu.classList.toggle("active")
         backgroundCover.classList.toggle("inactive")
         backgroundCover.classList.toggle("active")
         menu.classList.toggle("inactive")
-        hamburger.classList.toggle("active");
         hider.classList.toggle("active");
         hider.classList.toggle("inactive");
     } else {
+        hamburger.classList.remove("inactive");
+        hamburger.classList.toggle("active");
         menu.classList.remove("inactive");
         menu.classList.toggle("active");
         backgroundCover.classList.remove("inactive");
         backgroundCover.classList.toggle("active");
-        hamburger.classList.toggle("active");
         hider.classList.remove("inactive");
         hider.classList.toggle("active");
     }
@@ -250,11 +252,12 @@ function animate() {
 
 animate();
 
-window.addEventListener('resize', onWindowResize)
-
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
   effect.setSize(window.innerWidth, window.innerHeight);
 }
+
+window.addEventListener('resize', onWindowResize)
+

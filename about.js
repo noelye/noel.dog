@@ -92,6 +92,7 @@ const homeButton = document.getElementById("home")
 const aboutButton = document.getElementById("about-mobile")
 const resumeButton = document.getElementById("resume")
 const sendMessageButton = document.getElementById("sendmessage")
+const body = document.getElementById("bodydom")
 
 dark.addEventListener('click', darkMode);
 
@@ -138,6 +139,7 @@ function darkMode() {
     resumeButton.style.backgroundColor = "#EAEAEA"
     sendMessageButton.style.color = "#0038FF"
     sendMessageButton.style.backgroundColor = "#DDE0FF"
+    body.style.backgroundColor = "white"
   } else {
     scene.background.setColorName('black');
     addSphere('white')
@@ -180,24 +182,27 @@ function darkMode() {
     resumeButton.style.backgroundColor = "#101010"
     sendMessageButton.style.color = "#0038FF"
     sendMessageButton.style.backgroundColor = "#0C0D12"
+    body.style.backgroundColor = "black"
   }
 }
 
-hamburger.addEventListener("click", () => {
+hamburger.addEventListener("touchstart", () => {
   if (menu.classList.contains("active") == true) {
+      hamburger.classList.toggle("active");
+      hamburger.classList.toggle("inactive");
       menu.classList.toggle("active")
       backgroundCover.classList.toggle("inactive")
       backgroundCover.classList.toggle("active")
       menu.classList.toggle("inactive")
-      hamburger.classList.toggle("active");
       hider.classList.toggle("active");
       hider.classList.toggle("inactive");
   } else {
+      hamburger.classList.remove("inactive");
+      hamburger.classList.toggle("active");
       menu.classList.remove("inactive");
       menu.classList.toggle("active");
       backgroundCover.classList.remove("inactive");
       backgroundCover.classList.toggle("active");
-      hamburger.classList.toggle("active");
       hider.classList.remove("inactive");
       hider.classList.toggle("active");
   }

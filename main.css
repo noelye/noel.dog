@@ -675,16 +675,22 @@ transform: translateY(-1px);
     height: 3px;
     background-color: black;
     margin: 5px auto;
-    transition: 0.2s;
 }
 
 #hamburger.active .lines:nth-child(1){
     transform: translateY(8px) rotate(45deg);
-    transition: 0.2s;
+    transition: 0.2s ease-in;
 }
 #hamburger.active .lines:nth-child(2){
     transform: translateY(-5px) rotate(-45deg);
-    transition: 0.2s;
+    transition: 0.2s ease-in;
+}
+
+#hamburger.inactive .lines:nth-child(1){
+    transition: 0.2s ease-in;
+}
+#hamburger.inactive .lines:nth-child(2){
+    transition: 0.2s ease-in;
 }
 
 #noel {
@@ -698,22 +704,18 @@ transform: translateY(-1px);
 
 @keyframes revealAnimation {
     0% {
-        max-height: 0;
         opacity: 0;
     }
     100% {
-        max-height: 2000px; 
         opacity: 1;
     }
 }
 
 @keyframes hideAnimation {
     0% {
-      max-height: 500px;
       opacity: 1;
     }
     100% {
-      max-height: 0px;
       opacity: 0;
     }
   }
@@ -724,7 +726,6 @@ transform: translateY(-1px);
 #menu {
     display: none;
     overflow: hidden;
-    animation: revealAnimation 0.1s ease forwards;
     background-color: white;
     border-top: 1px solid #C7C7C7;
     z-index: 3;
@@ -752,7 +753,7 @@ transform: translateY(-1px);
     text-align: center;
     justify-content: center;
     padding-bottom: 30px;
-    animation: hideAnimation 0.1s ease forwards;
+    animation: hideAnimation 0.2s ease forwards;
   }
 
 
@@ -797,24 +798,23 @@ transform: translateY(-1px);
 
 #hider {
     display: none;
-    height: 1000px;
+    height: 100%;
 }
 
 #hider.active {
-    top: 10%;
+    top: 0%;
     position: absolute;
     display: flex;
-    height: 100%;
     background: rgba(0, 0, 0, 0.479);
     z-index: 1;
     transition: 0.8s;
     width: 100%;
-    animation: revealAnimation 0.1s ease forwards;
+    animation: revealAnimation 0.2s ease forwards;
 }
 
 #hider.inactive {
     display: none;
-    animation: hideAnimation 0.1s ease forwards;
+    animation: hideAnimation 0.2s ease forwards;
 }
 
 #background-cover {
@@ -832,6 +832,6 @@ transform: translateY(-1px);
     display: block;
     top: 0%;
     width: 100%;
-    height: 300px;
+    height: 200px;
     
 }
