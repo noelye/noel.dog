@@ -33,8 +33,8 @@ material.side = THREE.DoubleSide;
 // VIEWPORT
 
 const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight
+  width: window.innerWidth - 50,
+  height: window.innerHeight - 50
 };
 
 //VIEWPORT AND CAMERA
@@ -63,6 +63,7 @@ createEffect();
 
 // HTML POINTERS
 
+const bodyDom = document.getElementById("bodydom")
 const dark = document.getElementById("dark-mode-rectangle");
 const buttonAct = document.getElementById('button-active');
 const button = document.getElementsByClassName('button');
@@ -121,6 +122,7 @@ function darkMode() {
     resumeButton.style.backgroundColor = "#EAEAEA"
     sendMessageButton.style.color = "#0038FF"
     sendMessageButton.style.backgroundColor = "#DDE0FF"
+    bodyDom.style.backgroundColor = 'white'
 
   } else {
     effect.domElement.style.color = 'white';
@@ -130,6 +132,7 @@ function darkMode() {
     buttonAct.style.backgroundColor = "white";
     buttonAct.style.color = "black";
     buttonAct.style.borderColor = "white";
+    bodyDom.style.backgroundColor = 'black'
 
     for (let i = 0; i < button.length; i++) {
       button[i].style.color = "white";
