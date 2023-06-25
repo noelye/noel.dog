@@ -1,6 +1,6 @@
-import * as THREE from './three';
-import { OrbitControls } from './three/examples/jsm/controls/OrbitControls';
-import { STLLoader } from './three/examples/jsm/loaders/STLLoader';
+import * as THREE from 'https://unpkg.com/browse/three@0.153.0/';
+import { OrbitControls } from 'https://unpkg.com/browse/three@0.153.0/examples/jsm/controls/OrbitControls.js';
+import { STLLoader } from 'https://unpkg.com/browse/three@0.153.0/examples/jsm/loaders/STLLoader.js';
 import { AsciiEffect } from './AsciiEffect.js'
 // DECLARE / CREATE VARIABLES
 
