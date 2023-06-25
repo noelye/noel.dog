@@ -1,6 +1,6 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
+import * as THREE from './three';
+import { OrbitControls } from './three/examples/jsm/controls/OrbitControls';
+import { STLLoader } from './three/examples/jsm/loaders/STLLoader';
 import { AsciiEffect } from './AsciiEffect.js'
 // DECLARE / CREATE VARIABLES
 
