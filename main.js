@@ -1,14 +1,12 @@
-import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
-import { OrbitControls } from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js';
-import { STLLoader } from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/STLLoader.js';
-import { TrackballControls } from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/TrackballControls.js'
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { STLLoader } from 'three/examples/jsm/loaders/STLLoader';
 import { AsciiEffect } from './AsciiEffect.js'
 // DECLARE / CREATE VARIABLES
 
 const modelStl = new URL('./model.stl', import.meta.url).href
 const container = document.getElementById('container');
 const clock = new THREE.Clock();
-let rotateModel = false;
 let controls;
 const myMesh = new THREE.Mesh();
 const scene = new THREE.Scene();
@@ -41,7 +39,7 @@ const sizes = {
 
 //VIEWPORT AND CAMERA
 
-const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 5, 1000000);
+const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 5, 10000);
 const renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(sizes.width, sizes.height);
@@ -56,7 +54,7 @@ let ASCIIColor = 'black';
 
 function createEffect() {
   effect = new AsciiEffect(renderer, characters, { invert: true, resolution: effectSize.amount });
-  effect.setSize(sizes.width - 20, sizes.height - 10);
+  effect.setSize(sizes.width, sizes.height - 10);
   effect.domElement.style.color = ASCIIColor;
   effect.domElement.style.backgroundColor = backgroundColor;
 }
@@ -313,38 +311,24 @@ stlLoader.load(
 
     scene.add(myMesh);
 
-    controls = new TrackballControls( camera, effect.domElement );
-
-
-    
-
-    function tick() {
-      if (rotateModel === true) {
-        const elapsedTime = clock.getElapsedTime();
-        myMesh.rotation.z = elapsedTime / 3;
-        render();
-        window.requestAnimationFrame(tick);
-      } else {
-        render();
-        window.requestAnimationFrame(tick);
-      }
-    }
-
-    function render() {
-      controls.update();
-      effect.render(scene, camera);
-    }
-
-    tick();
-  }
-);
+    controls = new OrbitControls( camera, effect.domElement );
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.03;
+    controls.screenSpacePanning = false;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 2;
+    const elapsedTime = clock.getElapsedTime();
+    myMesh.rotation.z = elapsedTime / 3; 
+  
+  });
 
 
 // ANIMATE FUNCTION
 
 function animate() {
   requestAnimationFrame(animate);
-  renderer.render(scene, camera);
+  controls.update();
+  effect.render(scene, camera);
 }
 
 animate();
@@ -357,7 +341,7 @@ function onWindowResize() {
   camera.updateProjectionMatrix();
 
   renderer.setSize(sizes.width, sizes.height);
-  effect.setSize(sizes.width - 20, sizes.height - 10);
+  effect.setSize(sizes.width, sizes.height);
 }
 
 

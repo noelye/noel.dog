@@ -18,10 +18,10 @@ const noel = document.getElementById("noel")
 const menu = document.getElementById("menu");
 const hider = document.getElementById("hider");
 const backgroundCover = document.getElementById("background-cover")
-const homeButton = document.getElementById("home")
+const homeButton = document.getElementById("home-inactive")
 const aboutButton = document.getElementById("about-mobile")
 const resumeButton = document.getElementById("resume")
-const sendMessageButton = document.getElementById("sendmessage")
+const sendMessageButton = document.getElementById("sendmessage-filled")
 
 dark.addEventListener('click', darkMode);
 
@@ -62,14 +62,14 @@ function darkMode() {
     menu.style.borderTop = '1px solid #C7C7C7'
     backgroundCover.style.backgroundColor = 'white'
     darkText.innerHTML = "dark mode";
-    homeButton.style.color = "white";
-    homeButton.style.backgroundColor = "black";
+    homeButton.style.color = "#6F6F6F";
+    homeButton.style.backgroundColor = "#EAEAEA";
     aboutButton.style.color = "#6F6F6F"
     aboutButton.style.backgroundColor = "#EAEAEA"
     resumeButton.style.color = "#6F6F6F"
     resumeButton.style.backgroundColor = "#EAEAEA"
-    sendMessageButton.style.color = "#0038FF"
-    sendMessageButton.style.backgroundColor = "#DDE0FF"
+    sendMessageButton.style.color = "white"
+    sendMessageButton.style.backgroundColor = "#0038FF"
   } else {
 
     const isDarkMode = body.style.backgroundColor === 'white';
@@ -105,14 +105,14 @@ function darkMode() {
     menu.style.backgroundColor = 'rgb(17, 17, 17)';
     menu.style.borderTop = '1px solid #383838'
     backgroundCover.style.backgroundColor = 'rgb(17, 17, 17)'
-    homeButton.style.color = "black";
-    homeButton.style.backgroundColor = "white";
+    homeButton.style.color = "#8C8C8C";
+    homeButton.style.backgroundColor = "#202020";
     aboutButton.style.color = "#8C8C8C"
     aboutButton.style.backgroundColor = "#202020"
     resumeButton.style.color = "#8C8C8C"
     resumeButton.style.backgroundColor = "#202020"
-    sendMessageButton.style.color = "#0038FF"
-    sendMessageButton.style.backgroundColor = "#16161D"
+    sendMessageButton.style.color = "white"
+    sendMessageButton.style.backgroundColor = "#0038FF"
   }
 }
 
@@ -150,14 +150,14 @@ function checkDarkMode() {
     menu.style.backgroundColor = 'rgb(17, 17, 17)';
     menu.style.borderTop = '1px solid #383838'
     backgroundCover.style.backgroundColor = 'rgb(17, 17, 17)'
-    homeButton.style.color = "black";
-    homeButton.style.backgroundColor = "white";
+    homeButton.style.color = "#8C8C8C";
+    homeButton.style.backgroundColor = "#202020";
     aboutButton.style.color = "#8C8C8C"
     aboutButton.style.backgroundColor = "#202020"
     resumeButton.style.color = "#8C8C8C"
     resumeButton.style.backgroundColor = "#202020"
-    sendMessageButton.style.color = "#0038FF"
-    sendMessageButton.style.backgroundColor = "#16161D"
+    sendMessageButton.style.color = "white"
+    sendMessageButton.style.backgroundColor = "#0038FF"
 
   }
   else {
@@ -192,14 +192,14 @@ function checkDarkMode() {
     menu.style.borderTop = '1px solid #C7C7C7'
     backgroundCover.style.backgroundColor = 'white'
     darkText.innerHTML = "dark mode";
-    homeButton.style.color = "white";
-    homeButton.style.backgroundColor = "black";
+    homeButton.style.color = "#6F6F6F";
+    homeButton.style.backgroundColor = "#EAEAEA";
     aboutButton.style.color = "#6F6F6F"
     aboutButton.style.backgroundColor = "#EAEAEA"
     resumeButton.style.color = "#6F6F6F"
     resumeButton.style.backgroundColor = "#EAEAEA"
-    sendMessageButton.style.color = "#0038FF"
-    sendMessageButton.style.backgroundColor = "#DDE0FF"
+    sendMessageButton.style.color = "white"
+    sendMessageButton.style.backgroundColor = "#0038FF"
 
   }
 }

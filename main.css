@@ -23,8 +23,10 @@ body {
 }
 
 #container {
-    z-index: 1000;
     overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+
 }
 
 
@@ -777,6 +779,11 @@ transform: translateY(-1px);
     background-color: #EAEAEA;
 }
 
+#home-inactive {
+    color: #6F6F6F;
+    background-color: #EAEAEA;
+}
+
 #resume {
     color: #6F6F6F;
     background-color: #EAEAEA;
@@ -785,6 +792,11 @@ transform: translateY(-1px);
 #sendmessage {
     color: #0038FF;
     background-color: #DDE0FF;
+}
+
+#sendmessage-filled {
+    background-color: #0038FF;
+    color: white;
 }
 
 #hider {
