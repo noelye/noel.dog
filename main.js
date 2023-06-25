@@ -1,8 +1,8 @@
 import * as THREE from 'https://unpkg.com/three@0.127.0/build/three.module.js';
 import { OrbitControls } from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/OrbitControls.js';
 import { STLLoader } from 'https://unpkg.com/three@0.127.0/examples/jsm/loaders/STLLoader.js';
-import { AsciiEffect } from './AsciiEffect.js';
-
+import { TrackballControls } from 'https://unpkg.com/three@0.127.0/examples/jsm/controls/TrackballControls.js'
+import { AsciiEffect } from './AsciiEffect.js'
 // DECLARE / CREATE VARIABLES
 
 const modelStl = new URL('./model.stl', import.meta.url).href
@@ -13,6 +13,8 @@ let controls;
 const myMesh = new THREE.Mesh();
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0, 0, 0);
+
+
 
 // LIGHTING
 const pointLight1 = new THREE.PointLight(0xffffff, 1);
@@ -39,7 +41,7 @@ const sizes = {
 
 //VIEWPORT AND CAMERA
 
-const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 5, 2500);
+const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 5, 1000000);
 const renderer = new THREE.WebGLRenderer();
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(sizes.width, sizes.height);
@@ -54,7 +56,7 @@ let ASCIIColor = 'black';
 
 function createEffect() {
   effect = new AsciiEffect(renderer, characters, { invert: true, resolution: effectSize.amount });
-  effect.setSize(sizes.width, sizes.height);
+  effect.setSize(sizes.width - 20, sizes.height - 10);
   effect.domElement.style.color = ASCIIColor;
   effect.domElement.style.backgroundColor = backgroundColor;
 }
@@ -87,6 +89,10 @@ dark.addEventListener("click", darkMode);
 
 function darkMode() {
   if (effect.domElement.style.color === 'white') {
+
+    const isDarkMode = effect.domElement.style.color === 'black';
+    localStorage.setItem('darkMode', isDarkMode);
+
     effect.domElement.style.color = 'black';
     effect.domElement.style.backgroundColor = 'white';
     rectangle.style.background = "rgba(0, 0, 0, 0.404)";
@@ -126,6 +132,10 @@ function darkMode() {
 
   } else {
     effect.domElement.style.color = 'white';
+
+    const isDarkMode = effect.domElement.style.color === 'white';
+    localStorage.setItem('darkMode', isDarkMode);
+
     effect.domElement.style.backgroundColor = 'black';
     rectangle.style.background = "rgba(255, 255, 255, 0.204)";
     rectangle.style.width = "103px";
@@ -163,6 +173,95 @@ function darkMode() {
     sendMessageButton.style.backgroundColor = "#0C0D12"
   }
 }
+
+function checkDarkMode() {
+  const isDarkMode = localStorage.getItem('darkMode');
+  if (isDarkMode === 'true') {
+    
+    effect.domElement.style.color = 'white';
+
+    const isDarkMode = effect.domElement.style.color === 'white';
+    localStorage.setItem('darkMode', isDarkMode);
+
+    effect.domElement.style.backgroundColor = 'black';
+    rectangle.style.background = "rgba(255, 255, 255, 0.204)";
+    rectangle.style.width = "103px";
+    buttonAct.style.backgroundColor = "white";
+    buttonAct.style.color = "black";
+    buttonAct.style.borderColor = "white";
+    bodyDom.style.backgroundColor = 'black'
+
+    for (let i = 0; i < button.length; i++) {
+      button[i].style.color = "white";
+      button[i].style.borderColor = "white";
+    }
+
+    for (let i = 0; i < bottom.length; i++) {
+      bottom[i].style.color = "white";
+    }
+
+    darkText.style.color = "white";
+    darkText.innerHTML = "light mode";
+
+    for (let i = 0; i < hamburgerLines.length; i++) {
+      hamburgerLines[i].style.backgroundColor = "white";
+    }
+    noel.style.color = "white"
+    menu.style.backgroundColor = 'black';
+    menu.style.borderTop = '1px solid #383838'
+    backgroundCover.style.backgroundColor = 'black'
+    homeButton.style.color = "black";
+    homeButton.style.backgroundColor = "white";
+    aboutButton.style.color = "#8C8C8C"
+    aboutButton.style.backgroundColor = "#101010"
+    resumeButton.style.color = "#8C8C8C"
+    resumeButton.style.backgroundColor = "#101010"
+    sendMessageButton.style.color = "#0038FF"
+    sendMessageButton.style.backgroundColor = "#0C0D12"
+
+  }
+  else {
+        effect.domElement.style.color = 'black';
+    effect.domElement.style.backgroundColor = 'white';
+    rectangle.style.background = "rgba(0, 0, 0, 0.404)";
+    rectangle.style.width = "91px";
+    buttonAct.style.backgroundColor = "black";
+    buttonAct.style.color = "white";
+    buttonAct.style.borderColor = "black";
+
+    for (let i = 0; i < button.length; i++) {
+      button[i].style.color = "black";
+      button[i].style.borderColor = "black";
+    }
+
+    for (let i = 0; i < bottom.length; i++) {
+      bottom[i].style.color = "black";
+    }
+
+
+    darkText.style.color = "black";
+    for (let i = 0; i < hamburgerLines.length; i++) {
+      hamburgerLines[i].style.backgroundColor = "black";
+    }
+    noel.style.color = "black";
+    menu.style.backgroundColor = 'white';
+    menu.style.borderTop = '1px solid #C7C7C7'
+    backgroundCover.style.backgroundColor = 'white'
+    darkText.innerHTML = "dark mode";
+    homeButton.style.color = "white";
+    homeButton.style.backgroundColor = "black";
+    aboutButton.style.color = "#6F6F6F"
+    aboutButton.style.backgroundColor = "#EAEAEA"
+    resumeButton.style.color = "#6F6F6F"
+    resumeButton.style.backgroundColor = "#EAEAEA"
+    sendMessageButton.style.color = "#0038FF"
+    sendMessageButton.style.backgroundColor = "#DDE0FF"
+    bodyDom.style.backgroundColor = 'white'
+
+  }
+}
+
+checkDarkMode();
 
 hamburger.addEventListener("touchstart", () => {
     if (menu.classList.contains("active") == true) {
@@ -214,12 +313,10 @@ stlLoader.load(
 
     scene.add(myMesh);
 
-    controls = new OrbitControls(camera, effect.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.03;
-    controls.screenSpacePanning = false;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 2;
+    controls = new TrackballControls( camera, effect.domElement );
+
+
+    
 
     function tick() {
       if (rotateModel === true) {
@@ -234,6 +331,7 @@ stlLoader.load(
     }
 
     function render() {
+      controls.update();
       effect.render(scene, camera);
     }
 
@@ -246,18 +344,22 @@ stlLoader.load(
 
 function animate() {
   requestAnimationFrame(animate);
-  controls.update();
   renderer.render(scene, camera);
 }
 
 animate();
 
 function onWindowResize() {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  sizes.width = window.innerWidth;
+  sizes.height = window.innerHeight;
+
+  camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  effect.setSize(window.innerWidth, window.innerHeight);
+
+  renderer.setSize(sizes.width, sizes.height);
+  effect.setSize(sizes.width - 20, sizes.height - 10);
 }
+
 
 window.addEventListener('resize', onWindowResize)
 

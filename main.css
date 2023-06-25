@@ -26,18 +26,15 @@ body {
     height: 100%;
     background-color: rgb(255, 255, 255);
     text-align: center;
+    z-index: -10;
 }
 
 #container {
-    overflow: hidden;
+    z-index: 1000;
 }
 
-.webgl {
-    position: fixed;
-    top: 0;
-    left: 0;
-    outline: none;
-}
+
+
 
 
 #nav {
