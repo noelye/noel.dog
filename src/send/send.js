@@ -1,4 +1,5 @@
 const discordWebhook = process.env.WEBHOOK_URL
+console.log(discordWebhook);
 
 const dark = document.getElementById('dark-mode-rectangle');
 const button = document.getElementsByClassName('button');
