@@ -17,8 +17,7 @@ export default defineConfig({
       input: {
         main: resolve(root, 'index.html'),
         about: resolve(root, 'about', 'index.html'),
-        send: resolve(root, 'send', 'index.html'),
-        resume: resolve(root, 'resume', 'index.html')
+        send: resolve(root, 'send', 'index.html')
       }
     }
   }
