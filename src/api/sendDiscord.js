@@ -1,3 +1,5 @@
+console.log("test")
+
 const axios = require('axios');
 const discordWebhook = process.env.WEBHOOK_URL
 
