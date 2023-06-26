@@ -633,7 +633,6 @@ transform: translateY(-1px);
     }
 }
 
-
 @media screen and (max-width: 480px) {
     #message {
         top: 15%;

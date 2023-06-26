@@ -4,6 +4,23 @@ import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
 import { AsciiEffect } from 'three/examples/jsm/effects/AsciiEffect.js'
 // DECLARE / CREATE VARIABLES
 
+function animateTitle(Title = "noel.dog", delay = 50) {
+  let counter = 0;
+  let direction = true;
+
+  setInterval(function() {
+    counter = (direction) ? ++counter : --counter;
+
+    if (counter === 0 || counter === Title.length) {
+      direction = !direction;
+    }
+
+    document.title = (counter === 0) ? " " : Title.slice(0, counter);
+  }, delay);
+}
+
+animateTitle();
+
 const modelStl = new URL('./model.stl', import.meta.url).href
 const container = document.getElementById('container');
 const clock = new THREE.Clock();
@@ -346,4 +363,5 @@ function onWindowResize() {
 
 
 window.addEventListener('resize', onWindowResize)
+
 
