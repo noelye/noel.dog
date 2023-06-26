@@ -1,5 +1,3 @@
-const discordWebhook = process.env.WEBHOOK_URL
-
 const dark = document.getElementById('dark-mode-rectangle');
 const button = document.getElementsByClassName('button');
 const bottom = document.getElementsByClassName('bottom-text');
@@ -255,15 +253,13 @@ function sendDiscord() {
     body: bodyValue
   };
 
-  const messageContent = `From: ${message.from}\nSubject: ${message.subject}\n\nBody:${message.body}`;
-
   if (bodyValue.length > 0 && fromValue.length > 0 && subjectValue.length > 0) {
-    fetch(discordWebhook, {
+    fetch('../../api/sendMessage', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ content: messageContent }) // Include the message content in the request body
+      body: JSON.stringify({ from: message.from, subject: message.subject, body: message.body }) // Include the message content in the request body
     })
     .then(response => {
       if (response.ok) {
