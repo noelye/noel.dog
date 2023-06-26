@@ -275,7 +275,7 @@ function sendDiscord() {
     sendMessage.setAttribute('id', 'message-sent')
   }
   else {
-    alert("Character count is zero")
+    alert("All fields must be filled to send :)")
   }
 }
 
