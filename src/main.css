@@ -414,6 +414,16 @@ a {
     transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1) 0s; 
 }
 
+#body-text-fr::placeholder {
+    color: rgb(163, 163, 163);
+    font-size: 12px;
+}
+
+#body-text-fr:focus::placeholder {
+    
+    color:#bbbbbb;
+}
+
 #body-text-fr:hover {
     border: 1px solid rgb(233, 233, 233);
     background-color: rgb(233, 233, 233);
@@ -421,6 +431,7 @@ a {
 }
 
 #body-text-fr:focus {
+
     border: 1px solid rgb(62, 81, 250);
     background-color: rgb(247, 247, 247);
 
@@ -460,6 +471,16 @@ a {
 
 }
 
+#body-dark::placeholder {
+    color: rgb(110, 110, 110);
+    font-size: 12px;
+}
+
+#body-dark:focus::placeholder {
+    
+    color:#4b4b4b;
+}
+
 
 
 #send {
@@ -473,6 +494,26 @@ a {
     font-weight: 500;
     border: 2px solid #0038FF;
     transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1) 0s; 
+}
+
+#message-sent {
+    pointer-events: none;
+    background-color: #34D16A;
+    color: white;
+    width: 503px;
+    height: 50px;
+    font-size: 16px;
+    font-family: 'Roboto Mono';
+    font-weight: 500;
+    border: 2px solid #34D16A;
+    transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1) 0s; 
+}
+
+#message-sent:hover {
+    transform: translate(0, -4px);
+    cursor: pointer;
+    background-color: #34D16A;
+    color: white;
 }
 
 #send:hover {
@@ -633,6 +674,12 @@ transform: translateY(-1px);
         width: 328px;
         color: white;
         background-color: #0038FF;
+    }
+
+    #message-sent {
+        font-size: 14px;
+        width: 328px;
+        color: white;
     }
 }
 

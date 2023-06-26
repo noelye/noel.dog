@@ -1,3 +1,5 @@
+const discordWebhook = process.env.WEBHOOK_URL
+
 const dark = document.getElementById('dark-mode-rectangle');
 const button = document.getElementsByClassName('button');
 const bottom = document.getElementsByClassName('bottom-text');
@@ -227,5 +229,59 @@ hamburger.addEventListener("touchstart", () => {
       hider.classList.toggle("active");
   }
 });
+
+
+const send = document.getElementById("send")
+send.addEventListener('click', sendDiscord)
+
+function sendDiscord() {
+
+  let fromValue, subjectValue, bodyValue;
+
+  if (body.style.backgroundColor == 'rgb(17, 17, 17)') {
+    fromValue = document.getElementById('from-dark').value;
+    subjectValue = document.getElementById('subject-dark').value;
+    bodyValue = document.getElementById('body-dark').value;
+  }
+  else {
+    fromValue = document.getElementById('from').value;
+    subjectValue = document.getElementById('subject').value;
+    bodyValue = document.getElementById('body-text-fr').value;
+  }
+
+  const message = {
+    from: fromValue,
+    subject: subjectValue,
+    body: bodyValue
+  };
+
+  const messageContent = `From: ${message.from}\nSubject: ${message.subject}\n\nBody:${message.body}`;
+
+  if (bodyValue.length > 0 && fromValue.length > 0 && subjectValue.length > 0) {
+    fetch(discordWebhook, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ content: messageContent }) // Include the message content in the request body
+    })
+    .then(response => {
+      if (response.ok) {
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error('Error sending message:', error);
+      alert('Failed to send message. Please try again.');
+    });
+    sendMessage.innerHTML = 'Sent'
+    sendMessage.setAttribute('id', 'message-sent')
+  }
+  else {
+    alert("Character count is zero")
+  }
+}
+
 
 
